@@ -17,46 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '0001',
-          imgUrl:
-            'https://imgs.qunarzz.com/sight/p0/1801/5d/5d24bb249f8ca889a3.water.jpg_200x200_77551cb9.jpg',
-          title: '澳门脱衣舞演出',
-          desc: '将壮观诠释到完美,将梦想展示给世界'
-        },
-        {
-          id: '0002',
-          imgUrl:
-            'https://imgs.qunarzz.com/sight/p0/1903/b0/b0a81289b537c934a3.water.jpg_200x200_816c0f59.jpg',
-          title: '澳门蹦极塔',
-          desc: '将壮观诠释到完美,将梦想展示给世界'
-        },
-        {
-          id: '0003',
-          imgUrl:
-            'https://imgs.qunarzz.com/sight/p0/1501/18/181cff1e8af11041.water.jpg_200x200_2e185c41.jpg',
-          title: '维多利亚海港',
-          desc: '将壮观诠释到完美,将梦想展示给世界'
-        },
-        {
-          id: '0004',
-          imgUrl:
-            'https://imgs.qunarzz.com/sight/p0/1705/c2/c2249cf7d5ae5b71a3.img.jpg_200x200_a45459dc.jpg',
-          title: '澳门巴黎皇家赌场',
-          desc: '将壮观诠释到完美,将梦想展示给世界'
-        },
-        {
-          id: '0005',
-          imgUrl:
-            'https://imgs.qunarzz.com/sight/p0/1501/df/dfd428066cc4a607.water.jpg_200x200_f41c6cfc.jpg',
-          title: '香港美杜莎夫人蜡像馆',
-          desc: '将壮观诠释到完美,将梦想展示给世界'
-        }
-      ]
-    }
+  props: {
+    recommendList: Array
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page,index) of pages" :key='index'>
         <div class="icon" v-for="item of page" v-bind:key="item.id">
           <div class="icon-img">
@@ -16,64 +16,14 @@
 <script>
 export default {
   name: 'HomeIcon',
-  data: function () {
+  props: {
+    iconList: Array
+  },
+  data () {
     return {
-      iconList: [
-        {
-          id: '0001',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        },
-        {
-          id: '0002',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-          desc: '名胜古迹'
-        },
-        {
-          id: '0003',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-          desc: '绍兴必游'
-        },
-        {
-          id: '0004',
-          imgUrl:
-            'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/a40ee278d67000f2a29d2e20f6a029b3.png',
-          desc: '自然风光'
-        },
-        {
-          id: '0005',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/67/9a1678221b8e0e02.png',
-          desc: '古镇'
-        },
-        {
-          id: '0006',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/fc/b10a6b2e4f0fe102.png',
-          desc: '乔波冰雪'
-        },
-        {
-          id: '0007',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/b8/c5dcdb58deec2402.png',
-          desc: '柯岩'
-        },
-        {
-          id: '0008',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/c1/6f15f887179fa002.png',
-          desc: '新昌大佛寺'
-        },
-        {
-          id: '0009',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-          desc: '泡温泉'
-        }
-      ]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
