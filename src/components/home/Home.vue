@@ -15,6 +15,7 @@ import HomeIcons from './component/icons'
 import HomeRecommend from './component/recommend'
 import HomeWeekend from './component/weekend'
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   components: {
@@ -26,18 +27,23 @@ export default {
   },
   data () {
     return {
+      lastCity: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
       weekendList: []
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
   mounted () {
     this.getHomeInfo()
+    this.lastCity = this.city
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json').then(this.getHomeInfoSucc)
+      axios.get('/api/index.json?city=' + this.city).then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
       res = res.data
@@ -47,6 +53,12 @@ export default {
         this.recommendList = res.data.recommendList
         this.weekendList = res.data.weekendList
       }
+    }
+  },
+  activated () {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo()
     }
   }
 }
