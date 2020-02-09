@@ -3,7 +3,7 @@
     <router-link class="header-abs" tag="div" to='/' v-show="showAbs">
       <div class="iconfont header-abs-back">&#xe624;</div>
     </router-link>
-    <div class="header-fixed" v-show="!showAbs" :style="opacityStyle">
+    <div class="header-fixed" v-show="!showAbs" :style="opacityStyle" >
       <router-link to='/'>
         <div class="iconfont header-fixed-back">&#xe624;</div>
       </router-link>
@@ -25,6 +25,9 @@ export default {
   },
   activated () {
     window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
     handleScroll () {
